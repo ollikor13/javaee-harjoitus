@@ -10,6 +10,9 @@ import java.io.IOException;
  */
 public class UTF8Filter  implements Filter {
 
+    /**
+     * Apuluokka jossa hoidetaan filteröinti, yhteyden alustaminen sekä tyhjä funktio jolla yhteys on tarkoitus tuhota
+     */
 
     public void doFilter(ServletRequest request,
                          ServletResponse response, FilterChain chain)

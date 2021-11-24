@@ -2,6 +2,11 @@ package fi.ptuomaal.ping.entity;
 
 import javax.persistence.*;
 
+/**
+Pong-objectin määrittelyyn käytetty luokka
+Täällä on muunmuassa konstruktori pongille, nimen asettaminen sekä nimen haku
+ */
+
 @Entity
 @NamedQueries({
         @NamedQuery

@@ -9,6 +9,12 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ *
+ * Täällä on toteutettu routejen käyttämät funktiot
+ * Esimerkiksi getPongs jota PongResources /{name} käyttää
+ */
+
 @Stateless
 public class PongService {
 
@@ -22,7 +28,10 @@ public class PongService {
     PongRepository repository;
 
     public List<Pong> getPongs(String name) {
-        return repository.findAll();
+        /**
+         * Jos findbyname palauttaa tyhjän niin palautetaan kaikki
+         */
+        return !repository.findByName(name).isEmpty() ? repository.findByName(name) : repository.findAll();
     }
 
     public void generateContent() {
@@ -36,8 +45,8 @@ public class PongService {
         }
     }
 
-    public String getResponseForTest() {
-        return message;
+    public String getResponseForTest(String name) {
+        return message + name;
     }
 
     public boolean testDbOperations() {
@@ -54,5 +63,18 @@ public class PongService {
 
     public Pong getPong(Long id) {
         return repository.findById(id);
+    }
+
+    public Pong createPong(String name){
+        return repository.create(name);
+    }
+
+    public boolean removePong(Long id){
+        Pong pongToDelete = repository.findById(id);
+        if(pongToDelete != null){
+            return repository.delete(pongToDelete);
+        }
+
+        return false;
     }
 }

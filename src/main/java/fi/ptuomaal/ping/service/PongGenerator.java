@@ -9,11 +9,20 @@ import javax.inject.Inject;
 @Singleton
 public class PongGenerator {
 
+    /**
+     * Tämä luokka näyttää alustavan dataa aloituksessa
+     */
+
     @Inject
     PongService service;
+
+    @Inject
+    DemoService demoService;
 
     @PostConstruct
     public void init() {
         service.generateContent();
+        demoService.generateContent();
+
     }
 }

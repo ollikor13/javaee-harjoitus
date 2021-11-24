@@ -9,6 +9,11 @@ import java.util.List;
 
 public class PongRepository {
 
+    /**
+     * Repository-luokka
+     * Täällä on PongReposotory-luokan omat funktiot
+     */
+
     @PersistenceContext(unitName="ping")
     EntityManager entityManager;
 
